@@ -29,6 +29,21 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <cstdint>
 #include <cstdio>
 
+typedef struct rrr_t rrr_t;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+    extern rrr_t* bvector_rrr_create(uint64_t *d, uint64_t n, uint64_t b, uint64_t s);
+    extern uint64_t bvector_rrr_access(rrr_t *r, uint64_t i);
+    extern uint64_t bvector_rrr_rank0(rrr_t *r, uint64_t i);
+    extern uint64_t bvector_rrr_rank1(rrr_t *r, uint64_t i);
+    extern uint64_t bvector_rrr_select0(rrr_t *r, uint64_t i);
+    extern uint64_t bvector_rrr_select1(rrr_t *r, uint64_t i);
+#ifdef __cplusplus
+}
+#endif
+
 namespace bvector{
 
 class rrr {

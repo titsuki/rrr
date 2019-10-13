@@ -1,6 +1,6 @@
-CXX = g++ -std=c++11 -march=native
+CXX = g++ -std=c++11
 
-CFLAGS = -Wall -Wextra -Werror -Wshadow -Wcast-qual -Wcast-align -Wwrite-strings -O2
+CFLAGS = -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align -Wwrite-strings -O2
 
 CPPFLAGS = -DNDEBUG
 
@@ -19,6 +19,9 @@ test-rrr: test-rrr.o rrr.o
 
 %.o: %.cpp
 	$(CXX) $(DEBUG) $(CFLAGS) $(CPPFLAGS) $(INCLUDES) -c $<
+
+lib: librrr.cpp rrr.cpp
+	$(CXX) -shared -fPIC $(CFLAGS) rrr.cpp librrr.cpp -o librrr.so
 
 clean:
 	-$(RM) -f *.o $(TARGETS) >/dev/null 2>&1
